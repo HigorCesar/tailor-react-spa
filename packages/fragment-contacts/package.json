@@ -4,6 +4,7 @@
   "description": "",
   "main": "fragment.js",
   "scripts": {
+    "build": "webpack --env=dev",
     "build:prod": "webpack --env=prod",
     "publish:prod" : "./publish.sh",
     "docker-build": "docker build -t fragment-contacts ./release/",

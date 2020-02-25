@@ -4,7 +4,10 @@
   "description": "",
   "main": "fragment.js",
   "scripts": {
-    "build": "webpack -p",
+    "build": "webpack --env=dev",
+    "build:prod": "webpack --env=prod",
+    "publish:prod" : "./publish.sh",
+    "docker-build": "docker build -t fragment-chat ./release/",
     "watch": "webpack -w",
     "start": "node fragment.js"
   },
