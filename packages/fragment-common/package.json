@@ -5,6 +5,8 @@
   "main": "fragment.js",
   "scripts": {
     "build": "webpack -p",
+    "publish:prod" : "./publish.sh",
+    "docker-build": "docker build -t fragment-common ./release/",
     "watch": "webpack -w",
     "start": "node fragment.js"
   },
