@@ -13,6 +13,9 @@
   },
   "scripts": {
     "build": "webpack -p",
+    "build:prod": "webpack --env=prod",
+    "publish:prod" : "./publish.sh",
+    "docker-build": "docker build -t fragment-header ./release/",
     "watch": "webpack -w",
     "start": "node fragment.js"
   },
