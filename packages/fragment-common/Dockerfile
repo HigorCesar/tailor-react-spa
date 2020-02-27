@@ -12,5 +12,5 @@ RUN npm install
 
 # Bundle app source
 COPY . .
-EXPOSE 49162
+EXPOSE 6006
 CMD [ "node", "fragment.js" ]
