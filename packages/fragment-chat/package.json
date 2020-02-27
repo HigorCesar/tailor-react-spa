@@ -8,8 +8,8 @@
     "build:prod": "webpack --env=prod",
     "publish" : "./publish.sh",
     "publish:prod" : "./publish-prod.sh",
-    "docker:build": "docker build -t fragment-chat ./release/",
-    "docker:run":"docker run -p 3000:3000 -d fragment-chat",
+    "docker:build": "docker build -t higorcesar/fragment-chat:latest ./release/",
+    "docker:run":"docker run -p 3000:3000 -d higorcesar/fragment-chat:latest",
     "watch": "webpack -w",
     "start": "node fragment.js"
   },

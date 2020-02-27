@@ -36,7 +36,7 @@ spec:
        protocol: TCP
      selector:
         app: fragment-common
-     type: LoadBalancer
+     type: NodePort
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -53,7 +53,7 @@ spec:
       - backend:
           serviceName: fragment-common
           servicePort: 80
-        path: /
+        path: /*
 ---
 # ----------------------------------- chat ---------------------------------------
 apiVersion: apps/v1
@@ -93,7 +93,7 @@ spec:
        protocol: TCP
      selector:
         app: fragment-chat
-     type: LoadBalancer
+     type: NodePort
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -110,7 +110,7 @@ spec:
       - backend:
           serviceName: fragment-chat
           servicePort: 80
-        path: /
+        path: /*
 ---
 # ----------------------------------- contacts ---------------------------------------
 apiVersion: apps/v1
@@ -151,7 +151,7 @@ spec:
        protocol: TCP
      selector:
         app: fragment-contacts
-     type: LoadBalancer
+     type: NodePort
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -168,7 +168,7 @@ spec:
       - backend:
           serviceName: fragment-contacts
           servicePort: 80
-        path: /
+        path: /*
 ---
 # ----------------------------------- header ---------------------------------------
 apiVersion: apps/v1
@@ -208,7 +208,7 @@ spec:
        protocol: TCP
      selector:
         app: fragment-header
-     type: LoadBalancer
+     type: NodePort
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -225,7 +225,7 @@ spec:
       - backend:
           serviceName: fragment-header
           servicePort: 80
-        path: /
+        path: /*
 ---
 # ----------------------------------- tailor ---------------------------------------
 apiVersion: apps/v1
@@ -249,7 +249,7 @@ spec:
           imagePullPolicy: Always
           name: tailor
           ports:
-            - containerPort: 8082
+            - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -261,11 +261,11 @@ spec:
      ports:
      - name: http
        port: 80
-       targetPort: 8082
+       targetPort: 8080
        protocol: TCP
      selector:
         app: tailor
-     type: LoadBalancer
+     type: NodePort
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -282,4 +282,4 @@ spec:
       - backend:
           serviceName: tailor
           servicePort: 80
-        path: /
+        path: /*

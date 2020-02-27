@@ -12,5 +12,5 @@ RUN npm install
 
 # Bundle app source
 COPY . .
-EXPOSE 8082
+EXPOSE 8080
 CMD [ "node", "tailor.js" ]

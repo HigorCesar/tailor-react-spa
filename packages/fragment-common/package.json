@@ -8,8 +8,8 @@
     "build:prod": "webpack -p",
     "publish" : "./publish.sh",
     "publish:prod" : "./publish-prod.sh",
-    "docker:build": "docker build -t fragment-common ./release/",
-    "docker:run":"docker run -p 6006:6006 -d fragment-common",
+    "docker:build": "docker build -t higorcesar/fragment-common:latest ./release/",
+    "docker:run":"docker run -p 6006:6006 -d higorcesar/fragment-common:latest",
     "watch": "webpack -w",
     "start": "node fragment.js"
   },

@@ -4,7 +4,7 @@ module.exports = {
   entry: './app/index.js',
   output: {
     path: __dirname + '/public',
-    publicPath: 'http://fragment-header.foo/public/',
+    publicPath: 'http://fragment-header.sandbox.leaseplan.io/public/',
     filename: 'bundle.js',
     libraryTarget: 'amd'
   },
