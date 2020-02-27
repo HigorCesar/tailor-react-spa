@@ -9,6 +9,10 @@
   ],
   "scripts": {
     "start": "node tailor.js",
+    "publish": "./publish.sh",
+    "publish:prod": "./publish-prod.sh",
+    "docker:build": "docker build -t tailor ./release/",
+    "docker:run":"docker run -p 8082:8082 -d tailor",
     "build:fragments": "lerna run build",
     "build:fragments:prod": "lerna run build:prod",
     "publish:fragments:prod": "lerna run publish:prod",

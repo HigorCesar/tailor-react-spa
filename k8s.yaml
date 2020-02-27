@@ -1,0 +1,285 @@
+# ----------------------------------- common ---------------------------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fragment-common
+  name: fragment-common
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fragment-common
+  template:
+    metadata:
+      labels:
+        app: fragment-common
+    spec:
+      containers:
+        - image: higorcesar/fragment-common:latest
+          imagePullPolicy: Always
+          name: fragment-common
+          ports:
+            - containerPort: 6006
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fragment-common
+  labels:
+    app: fragment-common
+spec:
+     ports:
+     - name: http
+       port: 80
+       targetPort: 6006
+       protocol: TCP
+     selector:
+        app: fragment-common
+     type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    external-dns.alpha.kubernetes.io/hostname: fragment-common.sandbox.leaseplan.io
+    kubernetes.io/ingress.class: alb
+  name: fragment-common
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: fragment-common
+          servicePort: 80
+        path: /
+---
+# ----------------------------------- chat ---------------------------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fragment-chat
+  name: fragment-chat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fragment-chat
+  template:
+    metadata:
+      labels:
+        app: fragment-chat
+    spec:
+      containers:
+        - image: higorcesar/fragment-chat:latest
+          imagePullPolicy: Always
+          name: fragment-chat
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fragment-chat
+  labels:
+    app: fragment-chat
+spec:
+     ports:
+     - name: http
+       port: 80
+       targetPort: 3000
+       protocol: TCP
+     selector:
+        app: fragment-chat
+     type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    external-dns.alpha.kubernetes.io/hostname: fragment-chat.sandbox.leaseplan.io
+    kubernetes.io/ingress.class: alb
+  name: fragment-chat
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: fragment-chat
+          servicePort: 80
+        path: /
+---
+# ----------------------------------- contacts ---------------------------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fragment-contacts
+  name: fragment-contacts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fragment-contacts
+      
+  template:
+    metadata:
+      labels:
+        app: fragment-contacts
+    spec:
+      containers:
+        - image: higorcesar/fragment-contacts:latest
+          imagePullPolicy: Always
+          name: fragment-contacts
+          ports:
+            - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fragment-contacts
+  labels:
+    app: fragment-contacts
+spec:
+     ports:
+     - name: http
+       port: 80
+       targetPort: 5000
+       protocol: TCP
+     selector:
+        app: fragment-contacts
+     type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    external-dns.alpha.kubernetes.io/hostname: fragment-contacts.sandbox.leaseplan.io
+    kubernetes.io/ingress.class: alb
+  name: fragment-contacts
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: fragment-contacts
+          servicePort: 80
+        path: /
+---
+# ----------------------------------- header ---------------------------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fragment-header
+  name: fragment-header
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fragment-header
+  template:
+    metadata:
+      labels:
+        app: fragment-header
+    spec:
+      containers:
+        - image: higorcesar/fragment-header:latest
+          imagePullPolicy: Always
+          name: fragment-header
+          ports:
+            - containerPort: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fragment-header
+  labels:
+    app: fragment-header
+spec:
+     ports:
+     - name: http
+       port: 80
+       targetPort: 8081
+       protocol: TCP
+     selector:
+        app: fragment-header
+     type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    external-dns.alpha.kubernetes.io/hostname: fragment-header.sandbox.leaseplan.io
+    kubernetes.io/ingress.class: alb
+  name: fragment-header
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: fragment-header
+          servicePort: 80
+        path: /
+---
+# ----------------------------------- tailor ---------------------------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: tailor
+  name: tailor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tailor
+  template:
+    metadata:
+      labels:
+        app: tailor
+    spec:
+      containers:
+        - image: higorcesar/tailor:latest
+          imagePullPolicy: Always
+          name: tailor
+          ports:
+            - containerPort: 8082
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tailor
+  labels:
+    app: tailor
+spec:
+     ports:
+     - name: http
+       port: 80
+       targetPort: 8082
+       protocol: TCP
+     selector:
+        app: tailor
+     type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    external-dns.alpha.kubernetes.io/hostname: mfe.sandbox.leaseplan.io
+    kubernetes.io/ingress.class: alb
+  name: tailor
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: tailor
+          servicePort: 80
+        path: /

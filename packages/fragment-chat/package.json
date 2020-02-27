@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --env=dev",
     "build:prod": "webpack --env=prod",
-    "publish:prod" : "./publish.sh",
+    "publish" : "./publish.sh",
+    "publish:prod" : "./publish-prod.sh",
     "docker:build": "docker build -t fragment-chat ./release/",
     "docker:run":"docker run -p 3000:3000 -d fragment-chat",
     "watch": "webpack -w",

@@ -1,8 +1,9 @@
 #!/bin/bash
 rm  -rf release
 mkdir release
-mkdir release/public
-cp -R public release
+mkdir release
+mkdir release/templates
+cp -R templates release
 cp package.json release/package.json
-cp fragment.js release/fragment.js
+cp tailor.js release/tailor.js
 cp Dockerfile release/Dockerfile
