@@ -8,7 +8,7 @@
     "build:prod": "webpack --env=prod",
     "publish" : "./publish.sh",
     "publish:prod" : "./publish-prod.sh",
-    "docker:build": "docker build -t higorcesar/fragment-contacts:latest ./release/",
+    "docker:build": "docker build -t higorcesar/fragment-contacts:latest .",
     "docker:run":"docker run -p 5000:5000 -d higorcesar/fragment-contacts:latest",
     "watch": "webpack -w",
     "start": "node fragment.js"

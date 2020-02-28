@@ -81,13 +81,14 @@ The dependency management is handled with RequireJS on runtime.
 
 ### Build Fragments
 
-yarn run build:fragments
-yarn run publish:fragments
-nyarnpm run docker:build:fragments
+`yarn run build:fragments`
+`yarn run publish:fragments`
+`yarn run docker:build:fragments`
 
 ### Build Tailor
-yarn run publish
-yarn run docker:build
+
+`yarn run publish`
+`yarn run docker:build`
 
 ### Start all services
 
