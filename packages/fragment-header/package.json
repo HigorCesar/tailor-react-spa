@@ -14,9 +14,10 @@
   "scripts": {
     "build": "webpack -p",
     "build:prod": "webpack --env=prod",
-    "publish:prod" : "./publish.sh",
-    "docker:build": "docker build -t fragment-header ./release/",
-    "docker:run": "docker run -p 8081:8081 -d fragment-header",
+    "publish" : "./publish.sh",
+    "publish:prod" : "./publish-prod.sh",
+    "docker:build": "docker build -t higorcesar/fragment-header:latest .",
+    "docker:run": "docker run -p 8081:8081 -d higorcesar/fragment-header:latest",
     "watch": "webpack -w",
     "start": "node fragment.js"
   },

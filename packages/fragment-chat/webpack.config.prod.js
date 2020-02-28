@@ -4,7 +4,7 @@ module.exports = {
   entry: './app/index.js',
   output: {
     path: __dirname + '/public',
-    publicPath: 'http://fragment-chat.bar:8081/public/',
+    publicPath: 'http://fragment-chat.sandbox.leaseplan.io/public/',
     filename: 'bundle.js',
     libraryTarget: 'amd'
   },

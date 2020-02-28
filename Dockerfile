@@ -15,5 +15,5 @@ RUN npm install
 
 # Bundle app source
 COPY ./release/ .
-EXPOSE 5000
-CMD [ "node", "fragment.js" ]
+EXPOSE 8080
+CMD [ "node", "tailor.js" ]

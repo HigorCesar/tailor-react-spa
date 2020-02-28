@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  fragment-common:
+    image: higorcesar/fragment-common:latest
+    ports:
+      - "6006:6006"
+    networks:
+      - ufe
+
+  fragment-contacts:
+    image: higorcesar/fragment-contacts:latest
+    ports:
+      - "5000:5000"
+    networks:
+      - ufe
+
+  fragment-header:
+    image: higorcesar/fragment-header:latest
+    ports:
+      - "8081:8081"
+    networks:
+      - ufe
+
+  fragment-chat:
+    image: higorcesar/fragment-chat:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - ufe
+
+  tailor:
+    image: higorcesar/tailor:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - ufe
+
+networks:
+  ufe:
