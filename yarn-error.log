@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.0/libexec/bin/yarn.js install
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.0/libexec/bin/yarn.js run build
 
 PATH: 
-  /Users/rufihi/Documents/google-cloud-sdk/bin:/Users/rufihi/.sdkman/candidates/scala/current/bin:/Users/rufihi/.sdkman/candidates/micronaut/current/bin:/Users/rufihi/.sdkman/candidates/maven/current/bin:/Users/rufihi/.sdkman/candidates/java/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/rufihi/.aws:/Users/rufihi/Documents/ngda/istio-1.3.3/bin:/Users/rufihi/Documents/ngda/openshift/setup:/Users/rufihi/Documents/JetBrains.dotTrace.CommandLineTools.MacOS.2019.3.1:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS
+  /Users/rufihi/Documents/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/rufihi/.aws:/Users/rufihi/Documents/ngda/istio-1.3.3/bin:/Users/rufihi/Documents/ngda/openshift/setup:/Users/rufihi/Documents/JetBrains.dotTrace.CommandLineTools.MacOS.2019.3.1:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/rufihi/Documents/google-cloud-sdk/bin:/Users/rufihi/.sdkman/candidates/scala/current/bin:/Users/rufihi/.sdkman/candidates/micronaut/current/bin:/Users/rufihi/.sdkman/candidates/maven/current/bin:/Users/rufihi/.sdkman/candidates/java/current/bin
 
 Yarn version: 
   1.22.0
@@ -14,13 +14,17 @@ Platform:
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/rufihi/Documents/ngda/tailor-react-spa/packages/fragment-header/package.json: Unexpected token . in JSON at position 808
-      at JSON.parse (<anonymous>)
-      at /usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:1625:59
+  Invariant Violation: Script must exist
+      at invariant (/usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:2314:15)
+      at /usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:62386:11
       at Generator.next (<anonymous>)
       at step (/usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:310:30)
-      at /usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:321:13
-      at <anonymous>
+      at /usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:328:14
+      at new Promise (<anonymous>)
+      at new F (/usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:5301:28)
+      at /usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:307:12
+      at realRunCommand (/usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:62471:23)
+      at action.action (/usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:62532:16)
 
 npm manifest: 
   {
@@ -34,7 +38,16 @@ npm manifest:
     ],
     "scripts": {
       "start": "node tailor.js",
+      "build":"",
+      "publish": "./publish.sh",
+      "publish:prod": "./publish-prod.sh",
+      "docker:build": "docker build -t higorcesar/tailor:latest ./release/",
+      "docker:run":"docker run -p 8082:8082 -d higorcesar/tailor:latest",
       "build:fragments": "lerna run build",
+      "build:fragments:prod": "lerna run build:prod",
+      "publish:fragments:prod": "lerna run publish:prod",
+      "docker:build:fragments": "lerna run --parallel docker:build",
+      "docker:run:fragments": "lerna run --parallel docker:run",
       "start:fragments": "lerna run --parallel start",
       "watch:fragments": "lerna run --parallel watch"
     },

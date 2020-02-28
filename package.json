@@ -12,14 +12,16 @@
     "publish": "./publish.sh",
     "publish:prod": "./publish-prod.sh",
     "docker:build": "docker build -t higorcesar/tailor:latest ./release/",
-    "docker:run":"docker run -p 8082:8082 -d higorcesar/tailor:latest",
+    "docker:run":"docker run -p 8080:8080 -d higorcesar/tailor:latest",
     "build:fragments": "lerna run build",
     "build:fragments:prod": "lerna run build:prod",
+    "publish:fragments": "lerna run publish",
     "publish:fragments:prod": "lerna run publish:prod",
     "docker:build:fragments": "lerna run --parallel docker:build",
     "docker:run:fragments": "lerna run --parallel docker:run",
     "start:fragments": "lerna run --parallel start",
-    "watch:fragments": "lerna run --parallel watch"
+    "watch:fragments": "lerna run --parallel watch",
+    "publish:all": "lerna run publish"
   },
   "repository": {
     "type": "git",

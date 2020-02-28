@@ -77,6 +77,22 @@ The dependency management is handled with RequireJS on runtime.
 1. In another terminal, start the Tailor service with `yarn start`
 1. Navigate to `http://localhost:8080`
 
+## Docker and build scripts
+
+### Build Fragments
+
+yarn run build:fragments
+yarn run publish:fragments
+nyarnpm run docker:build:fragments
+
+### Build Tailor
+yarn run publish
+yarn run docker:build
+
+### Start all services
+
+`docker-compose up`
+
 ## References
 
 - [Mosaic9](https://mosaic9.org)
