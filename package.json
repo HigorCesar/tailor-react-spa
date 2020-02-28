@@ -21,7 +21,6 @@
     "docker:run:fragments": "lerna run --parallel docker:run",
     "start:fragments": "lerna run --parallel start",
     "watch:fragments": "lerna run --parallel watch",
-    "publish:all": "lerna run publish"
   },
   "repository": {
     "type": "git",
