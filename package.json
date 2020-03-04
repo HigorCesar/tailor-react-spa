@@ -20,7 +20,7 @@
     "docker:build:fragments": "lerna run --parallel docker:build",
     "docker:run:fragments": "lerna run --parallel docker:run",
     "start:fragments": "lerna run --parallel start",
-    "watch:fragments": "lerna run --parallel watch",
+    "watch:fragments": "lerna run --parallel watch"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,9 @@
   },
   "homepage": "https://github.com/tsnolan23/tailor-react-spa#readme",
   "dependencies":{
-    "node-tailor": "^3.4.0"
+    "node-tailor": "^3.4.0",
+    "aws-sdk": "^2.630.0",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",
