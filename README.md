@@ -60,9 +60,9 @@ The dependency management is handled with RequireJS on runtime.
 
 ## Setting up
 
-1. Clone this repository using `git clone https://github.com/armand1m/mosaic-tailor-react-example.git`
-1. Install all of the project dependencies with `yarn install`
-1. Build the fragments with `yarn run build:fragments`
+1. Clone this repository using `git clone https://github.com/HigorCesar/tailor-react-spa.git`
+2. Install all of the project dependencies with `yarn install`
+3. Build the fragments with `yarn run build:fragments`
 
 ## Running
 
